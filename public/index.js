@@ -32,9 +32,8 @@
  * </article>
  */
 function insertNewTwit(twitText, twitAuthor) {
-    // we use the twitTemplate.handlebars file and create a twit using the template. The only variable content is the text and the author
-    //Follows the format as stated above this function
-    var twitTemplate = Handlebars.templates.twit;
+
+    var twitTemplate = Handlebars.template.twit;
     var twitData = {
         text: twitText,
         author: twitAuthor
@@ -42,12 +41,9 @@ function insertNewTwit(twitText, twitAuthor) {
 
     var twitElem = twitTemplate(twitData);
     var twitContainer = document.querySelector('main.twit-container');
-    twitContainer.appendChild(twitElem);
-    allTwits.push(twitElem);
+    twitContainer.insertAdjacentHTML('beforeend', twitElem);
 
 }
-
-
 
 /***************************************************************************
  **
