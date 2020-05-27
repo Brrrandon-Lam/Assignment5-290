@@ -1,0 +1,13 @@
+{{! Main page template file}}
+
+{{> header}}
+
+<main class = "twit-container">
+	{{#each twits}}
+		{{> twit}}
+	{{/each}}
+</main>
+
+{{#if show}}
+	{{> createTwitModal}}
+{{/if}}

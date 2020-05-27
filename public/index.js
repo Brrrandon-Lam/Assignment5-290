@@ -2,8 +2,8 @@
  * Write your client-side JS code in this file.  Make sure to add your name and
  * @oregonstate.edu email address below.
  *
- * Name:
- * Email:
+ * Name: Brandon Lam
+ * Email: lamb@oregonstate.edu
  */
 
 
@@ -32,59 +32,21 @@
  * </article>
  */
 function insertNewTwit(twitText, twitAuthor) {
+    // we use the twitTemplate.handlebars file and create a twit using the template. The only variable content is the text and the author
+    //Follows the format as stated above this function
+    var twitTemplate = Handlebars.templates.twit;
+    var twitData = {
+        text: twitText,
+        author: twitAuthor
+    };
 
-  // Create a new twit <article> element.
-  var twitElem = document.createElement('article');
-  twitElem.classList.add('twit');
-
-  /*
-   * Create a new twit-icon <div> element, insert bullborn with innerHTML
-   * (which is safe in this case because we're not dealing with user input),
-   * and add the div into the new twit element.
-   */
-  var twitIconElem = document.createElement('div');
-  twitIconElem.classList.add('twit-icon');
-  twitIconElem.innerHTML = '<i class="fa fa-bullhorn"></i>';
-  twitElem.appendChild(twitIconElem);
-
-  /*
-   * Create a new twit-content <div> element, and insert it into the new twit
-   * element.
-   */
-  var twitContentElem = document.createElement('div');
-  twitContentElem.classList.add('twit-content');
-  twitElem.appendChild(twitContentElem);
-
-  /*
-   * Create a new twit-text <p> element and add to it a text node containing
-   * the twit text value specified by the user.  Add the twit-text <p> element
-   * into the twit-content element.
-   */
-  var twitTextNode = document.createTextNode(twitText);
-  var twitTextElem = document.createElement('p');
-  twitTextElem.classList.add('twit-text');
-  twitTextElem.appendChild(twitTextNode);
-  twitContentElem.appendChild(twitTextElem);
-
-  /*
-   * Create a new twit-author <p> element and add to it an <a> element
-   * that itself contains a text node with the twit author value
-   * specified by the user.  Add the twit-author <p> element into the
-   * twit-content element.
-   */
-  var twitAuthorTextNode = document.createTextNode(twitAuthor);
-  var twitAuthorLinkElem = document.createElement('a');
-  twitAuthorLinkElem.href = '#';
-  twitAuthorLinkElem.appendChild(twitAuthorTextNode);
-  var twitAuthorElem = document.createElement('p');
-  twitAuthorElem.classList.add('twit-author');
-  twitAuthorElem.appendChild(twitAuthorLinkElem);
-  twitContentElem.appendChild(twitAuthorElem);
-
-  var twitContainer = document.querySelector('main.twit-container');
-  twitContainer.appendChild(twitElem);
+    var twitElem = twitTemplate(twitData);
+    var twitContainer = document.querySelector('main.twit-container');
+    twitContainer.appendChild(twitElem);
+    allTwits.push(twitElem);
 
 }
+
 
 
 /***************************************************************************
