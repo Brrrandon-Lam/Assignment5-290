@@ -33,15 +33,16 @@
  */
 function insertNewTwit(twitText, twitAuthor) {
 
-    var twitTemplate = Handlebars.template.twit;
+    var twitTemplate = Handlebars.templates.twit;
     var twitData = {
         text: twitText,
         author: twitAuthor
     };
 
     var twitElem = twitTemplate(twitData);
-    var twitContainer = document.querySelector('main.twit-container');
-    twitContainer.insertAdjacentHTML('beforeend', twitElem);
+    var twitContainer = document.querySelector('.twit-container');
+    twitContainer.insertAdjacentHTML("beforeend", twitElem);
+    hideCreateTwitModal();
 
 }
 
