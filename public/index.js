@@ -44,6 +44,7 @@ function insertNewTwit(twitText, twitAuthor) {
     twitContainer.insertAdjacentHTML("beforeend", twitElem);
     hideCreateTwitModal();
 
+
 }
 
 /***************************************************************************

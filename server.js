@@ -29,7 +29,9 @@ hbs = exphbs.create({
 });
 
 app.get('/', function (req, res, next) {
-    console.log("== Received a request with parameters: ", req.params);
+    console.log("== Got a request")
+    console.log("== Request Parameters:", req.params);
+    //shows all data for the page
     if (data) {
         var inputs = {
             twits: data,
@@ -41,7 +43,7 @@ app.get('/', function (req, res, next) {
         next();
     }
 });
-
+/*
 app.get('/twits/:index', function (req, res, next) {
     console.log("== Got a request")
     console.log("== Request Parameters:", req.params);
@@ -57,7 +59,7 @@ app.get('/twits/:index', function (req, res, next) {
         res.status(404);
         res.render('404Page');
     }
-});
+});*/
 
 //Function that renders the 404 page on attempting to access something inaccessible.
 app.get('*', function (req, res, next) {
