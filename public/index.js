@@ -32,7 +32,6 @@
  * </article>
  */
 function insertNewTwit(twitText, twitAuthor) {
-
     var twitTemplate = Handlebars.templates.twit;
     var twitData = {
         text: twitText,
@@ -43,8 +42,6 @@ function insertNewTwit(twitText, twitAuthor) {
     var twitContainer = document.querySelector('.twit-container');
     twitContainer.insertAdjacentHTML("beforeend", twitElem);
     hideCreateTwitModal();
-
-
 }
 
 /***************************************************************************
